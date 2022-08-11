@@ -17,7 +17,7 @@ public class CalculatorSWITCH {
     }
 
     private void calculate(double numberOne, double numberTwo, char symbol) {
-        double result = 0;
+        double result;
 
         switch (symbol) {
             case '-':
@@ -30,8 +30,15 @@ public class CalculatorSWITCH {
                 result = numberOne * numberTwo;
                 break;
             case '/':
+                if (numberTwo == 0) {
+                    System.out.println("Divide by zero");
+                    return;
+                }
                 result = numberOne / numberTwo;
                 break;
+            default:
+                System.out.println("Error");
+                return;
         }
         System.out.println("Result = " + result);
     }
